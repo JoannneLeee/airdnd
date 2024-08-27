@@ -10,12 +10,15 @@ import { signOut } from "next-auth/react";
 import { SafeUser } from "@/app/types";
 import toast from "react-hot-toast";
 import useRentModal from "@/app/hooks/useRentModal";
+import { useRouter } from "next/navigation";
 
 interface UserMenuProps {
   currentUser?: SafeUser | null;
 }
 
 const UserMenu = ({ currentUser }: UserMenuProps) => {
+
+  const router = useRouter();
 
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
@@ -60,10 +63,10 @@ const UserMenu = ({ currentUser }: UserMenuProps) => {
           <div className="flex flex-col cursor-pointer">
             {currentUser ? (
               <>
-                <MenuItem label="My Trips" onClick={()=>{}} />
-                <MenuItem label="My Favorites" onClick={()=>{}} />
-                <MenuItem label="My Reservations" onClick={()=>{}} />
-                <MenuItem label="My Properties" onClick={()=>{}} />
+                <MenuItem label="My Trips" onClick={()=>router.push('/trips')} />
+                <MenuItem label="My Favorites" onClick={()=>router.push('/favorites')} />
+                <MenuItem label="My Reservations" onClick={()=>router.push('/reservations')} />
+                <MenuItem label="My Properties" onClick={()=>router.push('/properties')} />
                 <MenuItem label="Airdnd My Home" onClick={rentModal.onOpen} />
                 <hr />
                 <MenuItem label="Logout" onClick={()=>signOut()} />

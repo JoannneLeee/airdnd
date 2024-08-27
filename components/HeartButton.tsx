@@ -14,8 +14,6 @@ const HeartButton = ({ listingId, currentUser }: HeartButtonProps) => {
 
   const {hasFavorited, toggleFavorite} = useFavorite({listingId, currentUser})
 
-  console.log(listingId)
-
   return (
     <div
       onClick={toggleFavorite}
