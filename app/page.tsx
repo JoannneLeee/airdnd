@@ -5,6 +5,7 @@ import Image from "next/image";
 import getListings, { IListingsParams } from "./actions/getListings";
 import ListingCard from "@/components/listings/ListingCard";
 import getCurrentUser from "./actions/getCurrentUser";
+export const dynamic = 'force-dynamic'
 
 interface HomeProps {
   searchParams: IListingsParams
